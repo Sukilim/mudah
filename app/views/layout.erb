@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mudah.my</title>
+</head>
+<body>
+
+<form action="/home" method="get">
+<input type="submit" value="Home">
+</form>
+
+<% if current_user %>
+<form action="/users/<%= current_user.id%>" method="get">
+<input type="submit" value="Profile">
+</form>
+<%end %>
+
+<form action="/logout" method="post">
+<input type="submit" value="Logout">
+</form>
+
+<%= yield %>
+
+</body>
+

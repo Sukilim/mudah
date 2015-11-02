@@ -1,0 +1,12 @@
+<h1><%= @products.item%></h1>
+
+<%= @error if @error %>
+
+<p> Who favourites this item </p>
+<tr><% @user.each do |each_user| %></tr>
+	<p><%= each_user.name%></p>
+<% end%>
+
+	<form action="/products/<%= @products.id%>/item" method="post">
+	<input type="submit" value="Add To Favourites">
+  </form>

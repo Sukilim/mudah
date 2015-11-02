@@ -1,0 +1,10 @@
+	<h1>Favourites</h1>
+
+	<h2>All my favourites</h2>
+	<tr><% @favourite_products.each do |fav| %></tr>
+		<p><%= fav.item %></p>
+	<form action="/favourite/<%= fav.id %>" method="post">
+					<input type="hidden" name="_method" value="delete">
+				<button type="submit">Delete</button>
+				</form>
+	<%end %>

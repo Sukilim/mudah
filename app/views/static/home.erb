@@ -1,0 +1,6 @@
+
+<h1>Home Page</h1>
+<h2>Listed Products</h2>
+	<tr><% @products.each do |product| %></tr>
+		<p><a href="/products/<%= product.id %>/item"><%= product.item %></a></p>
+	<%end %>

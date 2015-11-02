@@ -1,0 +1,23 @@
+	<h1>Profile Page</h1>
+	<h2>Hello <%= current_user.name %></h2>
+
+	<%= @error if @error %>
+
+	<h3>All my items</h3>
+	<tr><% @user_products.each do |each_product| %></tr>
+		<p><a href="/products/<%= each_product.id%>/item"><%= each_product.item %></a>
+			<%if current_user %>
+				<a href="/product/<%= each_product.id%>/edit"><button>Edit</button></a>
+				<form action="/product/<%= each_product.id %>" method="post">
+					<input type="hidden" name="_method" value="delete">
+				<button type="submit">Delete</button>
+				</form>
+			<% end %></p>
+	<%end %>
+
+<form action="/product" method="post">
+Add Product: <input type="text" name="item">
+<input type="submit" value="Add New">
+</form>
+
+<a href="/favourite"><button>My Favourites</button></a>
